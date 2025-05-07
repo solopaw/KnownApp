@@ -1,12 +1,30 @@
-const HomePage = () => {
+import { fetchPokemon } from "./actions/getPokemon";
+import LoadPokemon from "@/components/PokedexView";
+import Search from "@/components/Search";
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+}) => {
+  const search =
+    typeof searchParams.search === "string"
+      ? searchParams.search
+      : undefined;
+
+  const pokemon = await fetchPokemon({ search });
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">Welcome to KnownApp!</h1>
-      <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-hidden">
-        Get Started
-      </button>
+    <div className="max-w-[1500px] w-[95%] mx-auto">
+      <Search search={search} />
+      <ul key={Math.random()}>
+        <LoadPokemon
+          search={search}
+          initialPokemon={pokemon}
+        />
+      </ul>
     </div>
   );
-}
+};
 
-export default HomePage;
+export default Page;

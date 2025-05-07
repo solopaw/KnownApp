@@ -4,7 +4,7 @@ import { AtSignIcon } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export default function Component() {
+export default function Brock() {
   const id = useId()
   return (
     <div className="*:not-first:mt-2">
