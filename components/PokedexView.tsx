@@ -1,7 +1,7 @@
 "use client";
 import { fetchPokemon } from "@/app/actions/getPokemon";
 import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { useInView } from "@/hooks/observe";
 import { ClipLoader } from "./Loader";
 import PokemonCard, { Pokemon } from "./PokemonCard";
 

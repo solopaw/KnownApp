@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useDebounce } from "use-debounce";
+import { useDebounce } from "@/hooks/useDebounce";
 import { useEffect, useRef, useState } from "react";
 
 const Search = ({ search }: { search?: string }) => {
